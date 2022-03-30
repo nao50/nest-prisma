@@ -14,17 +14,18 @@ import { User as UserModel } from '@prisma/client';
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
+  // Get user
+  @Get(':id')
+  async getUser(@Param('id') id: string): Promise<UserModel> {
+    // async getUser(@Param('id') id: number): Promise<UserModel> {
+    // return this.userService.getUser({ id: id, email: '' });
+    return this.userService.getUser(id);
+  }
+
   // List user
   @Get('')
   async listUser(): Promise<UserModel[]> {
     return this.userService.listUser({});
-  }
-
-  // Get user
-  @Get(':id')
-  // async getUser(@Param('id') id: string): Promise<UserModel> {
-  async getUser(@Param('id') id: number): Promise<UserModel> {
-    return this.userService.getUser({ id: id, email: '' });
   }
 
   @Post('')

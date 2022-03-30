@@ -76,7 +76,7 @@ Nest is [MIT licensed](LICENSE).
 1
 - [] CRUD with nestjs & prisma
 - [] OpenAPI & cli(golang)
-- [] Auth
+- [] Auth(passport)
 - [] Hashing
 - [] CORS
 - [] CSRF
@@ -120,18 +120,11 @@ $ npm install @prisma/client
 $ npx prisma init
 $ npx prisma migrate dev --name init
 $ npx prisma studio
-$ #  nestjs
-$ nest generate module services/shared --flat
-$ nest generate service services/prisma
+$ # nestjs
+$ # nest generate module services/shared --flat
+$ nest generate service services/prisma --flat
 $ nest generate module user
 $ nest generate service user
 $ nest generate controller user
 ```
 
-
-Potential solutions:
-- If PrismaService is a provider, is it part of the current UserModule?
-- If PrismaService is exported from a separate @Module, is that module imported within UserModule?
-  @Module({
-    imports: [ /* the Module containing PrismaService */ ]
-  })

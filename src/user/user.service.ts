@@ -9,11 +9,14 @@ export class UserService {
 
   // Get user
   async getUser(
-    userWhereUniqueInput: Prisma.UserWhereUniqueInput,
-    // id: string,
+    // userWhereUniqueInput: Prisma.UserWhereUniqueInput,
+    id: string,
   ): Promise<User | null> {
+    // return this.prisma.user.findUnique({
+    //   where: userWhereUniqueInput,
+    // });
     return this.prisma.user.findUnique({
-      where: userWhereUniqueInput,
+      where: { id: id },
     });
   }
 
