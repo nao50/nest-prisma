@@ -72,8 +72,23 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 Nest is [MIT licensed](LICENSE).
 
+## ToDos
+1
+- [] CRUD with nestjs & prisma
+- [] OpenAPI & cli(golang)
+- [] Auth
+- [] Hashing
+- [] CORS
+- [] CSRF
+- [] Rate Limit
 
-## Command
+2
+- [] Deploy Cloud Run
+- [] PlanetScale
+- [] CI/CD with GCP
+- [] Logging
+
+## Commands
 ```bash
 $ nest new nest-prisma
 $ cd nest-prisma
@@ -96,4 +111,27 @@ $ tree . -I node_modules -L 2
 └── tsconfig.json
 $
 $ npm run start:dev
+$ npm run start:dev
+$ # mysql
+$ cd ./db && docker compose up -d
+$ # prisma
+$ npm install prisma --save-dev
+$ npm install @prisma/client
+$ npx prisma init
+$ npx prisma migrate dev --name init
+$ npx prisma studio
+$ #  nestjs
+$ nest generate module services/shared --flat
+$ nest generate service services/prisma
+$ nest generate module user
+$ nest generate service user
+$ nest generate controller user
 ```
+
+
+Potential solutions:
+- If PrismaService is a provider, is it part of the current UserModule?
+- If PrismaService is exported from a separate @Module, is that module imported within UserModule?
+  @Module({
+    imports: [ /* the Module containing PrismaService */ ]
+  })
