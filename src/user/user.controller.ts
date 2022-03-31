@@ -28,8 +28,9 @@ export class UserController {
     return this.userService.listUser({});
   }
 
+  // Create user
   @Post('')
-  async signupUser(
+  async createUser(
     @Body() userData: { name?: string; email: string },
   ): Promise<UserModel> {
     return this.userService.createUser(userData);
