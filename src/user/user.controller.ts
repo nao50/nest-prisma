@@ -35,4 +35,19 @@ export class UserController {
   ): Promise<UserModel> {
     return this.userService.createUser(userData);
   }
+
+  // Update user
+  @Put(':id')
+  async updateUser(
+    @Param('id') id: string,
+    @Body() userData: { name?: string; email: string },
+  ): Promise<UserModel> {
+    return this.userService.updateUser({ id: id }, userData);
+  }
+
+  // Delete user
+  @Put(':id')
+  async deleteUser(@Param('id') id: string): Promise<UserModel> {
+    return this.userService.deleteUser({ id: id });
+  }
 }
